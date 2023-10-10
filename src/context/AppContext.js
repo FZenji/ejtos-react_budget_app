@@ -59,7 +59,11 @@ export const AppReducer = (state, action) => {
             };
         case 'SET_BUDGET':
             action.type = "DONE";
-            state.budget = action.payload;
+            if(action.payload > 20000) {
+                alert("Budget cannot exceed " + state.currency + "20,000")
+            } else {
+                state.budget = action.payload;
+            };
 
             return {
                 ...state,
